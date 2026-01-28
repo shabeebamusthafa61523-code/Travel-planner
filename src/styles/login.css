@@ -1,0 +1,152 @@
+/* Wrapper for two-column layout */
+.login-wrapper {
+  display: flex;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+/* LEFT SIDE */
+.login-left {
+  flex: 1;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.35); /* dark overlay */
+}
+
+.quote {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0 20px;
+  font-style: italic;
+  max-width: 80%;
+  line-height: 1.5;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* RIGHT SIDE */
+.login-right {
+  /* flex: 1; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f7fa;
+  padding: 40px;
+}
+
+/* LOGIN CARD */
+.login-card {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  padding: 50px 40px;
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+}
+
+.login-card h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #1c4674;
+}
+
+/* Inputs */
+.login-card input {
+  width: 90%;
+  padding: 14px 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.login-card input:focus {
+  border-color: #1b528d;
+  box-shadow: 0 0 8px rgba(0,123,255,0.3);
+  outline: none;
+}
+
+/* Button */
+.login-card button {
+  width: 80%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background-color: #1a426d;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.login-card button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Footer text */
+.login-card p {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.login-card p a {
+color: #1a426d;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-card p a:hover {
+  text-decoration: underline;
+}
+
+/* Fade-in animation for quotes */
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .login-wrapper {
+    flex-direction: column;
+  }
+  .login-left {
+    height: 300px;
+  }
+  .login-right {
+    padding: 20px;
+  }
+}
+.login-logo {
+  display: block;
+  margin: 0 auto 20px; /* Center and add space below */
+  width: 150px; /* Adjust size as needed */
+  height: auto;
+}

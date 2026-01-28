@@ -1,0 +1,64 @@
+.create-wrapper {
+
+  
+  min-height: 120vh;
+  /* background: #f5f7fb; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg{
+  background-image: url('../bg.png');
+  background-size: cover; /* Cover the entire screen */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Don't repeat */
+  background-attachment: fixed; /* Optional: makes it stay on scroll */
+  color: #fff; /* Text color for contrast */
+}
+.create-card {
+  background: #ffffff;
+  width: 380px;
+  padding: 36px 32px;
+  border-radius: 14px;
+  margin: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.create-card h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #1f3b5c;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.create-card input {
+  width: 90%;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.create-card input:focus {
+  outline: none;
+  border-color: #1f3b5c;
+}
+
+.create-card button {
+  width: 100%;
+  padding: 12px;
+  background: #1f3b5c;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.create-card button:hover {
+  background: #162c45;
+}
