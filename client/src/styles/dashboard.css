@@ -1,0 +1,142 @@
+:root {
+  /* Brand Palette */
+  --nyora-teal: #1b6b7a;
+  --nyora-gold: #e2b04a;
+  --bg-main: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  
+  /* Multi-layered shadow for 'Soft' elevation */
+  --shadow-premium: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 
+                    0 4px 6px -4px rgba(0, 0, 0, 0.02);
+}
+
+.dashboard-wrapper {
+  background: radial-gradient(at 0% 0%, #ffffff 0%, #f1f5f9 100%);
+  min-height: 100vh;
+  /* Add padding at the top so content isn't hidden behind the floating nav */
+  padding-top: 120px; 
+  /* padding-bottom: 10px; */
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Ensures spacing between header, stats, and grid */
+}
+
+/* Header: Typography Focus */
+.dashboard-header {
+  padding: 60px 30px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-header h2 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.04em; /* Premium tight spacing */
+  margin: 0;
+}
+
+.dashboard-header h2::after {
+  content: '';
+  display: block;
+  width: 45px;
+  height: 5px;
+  background: var(--nyora-gold);
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* Premium Button Glow */
+.create-btn {
+  background: var(--nyora-teal);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 20px -5px rgba(27, 107, 122, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.create-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px -5px rgba(27, 107, 122, 0.5);
+  background: #145663;
+}
+
+/* Stat Cards: Elevation over Glass */
+.stats-cards {
+  display: flex;
+  gap: 25px;
+  padding: 0 30px;
+  margin-bottom: 50px;
+}
+
+.stat-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  flex: 1;
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: var(--shadow-premium);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: reveal 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.stat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+  border-color: var(--nyora-teal);
+}
+
+/* Staggered Entrance Animation */
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+
+.stat-card h3 {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.stat-number {
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--text-main);
+  background: linear-gradient(135deg, var(--text-main), var(--nyora-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Progress Bars */
+.progress-bar {
+  height: 6px;
+  background: #f1f5f9;
+  border-radius: 20px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 20px;
+}

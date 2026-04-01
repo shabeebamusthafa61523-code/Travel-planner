@@ -1,0 +1,88 @@
+:root {
+  --nyora-teal: #1b6b7a;
+  --nyora-gold: #e2b04a;
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.trip-card {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 24px; /* Consistent with your dashboard cards */
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.trip-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: var(--nyora-teal);
+}
+
+/* Title & Destination */
+.trip-card h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.destination {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--nyora-teal);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: -5px;
+}
+
+/* Dates Section */
+.dates {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 8px 0;
+  padding: 8px 0;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* Premium Countdown Badge */
+.countdown {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 50px;
+  background: rgba(226, 176, 74, 0.1); /* Gold tint */
+  color: var(--nyora-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+/* Activities List - Minimalist Style */
+.activities-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.activities-list li {
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: #f8fafc;
+  color: #475569;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}

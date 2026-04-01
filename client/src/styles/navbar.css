@@ -1,0 +1,108 @@
+:root {
+  --nyora-teal: #1b6b7a;
+  --nyora-gold: #e2b04a;
+  --nav-bg: rgba(255, 255, 255, 0.85);
+}
+
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1100px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  z-index: 2000; /* Ensure it stays on top */
+}
+
+/* Adjust the Nav Logo size so it doesn't break the pill height */
+.logonav {
+  height: 60px; 
+  width: auto;
+  object-fit: contain;
+}
+
+/* Subtle shrink effect on scroll (if you add JS for it) */
+.navbar.scrolled {
+  padding: 8px 25px;
+  width: 80%;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.navbar-brand {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.navbar-title {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--nyora-teal);
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 10px; /* Tighter gap for pill style */
+  align-items: center;
+}
+
+.navbar-link {
+  color: #64748b;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Premium "Capsule" Active State */
+.navbar-link:hover {
+  color: var(--nyora-teal);
+  background: rgba(27, 107, 122, 0.05);
+}
+
+.navbar-link.active {
+  color: white;
+  background: var(--nyora-teal);
+  box-shadow: 0 4px 12px rgba(27, 107, 122, 0.25);
+}
+
+/* Remove the old underline effect */
+.navbar-link::after {
+  display: none;
+}
+
+.navbar-btn {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-left: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar-btn:hover {
+  background: #ef4444;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
+}

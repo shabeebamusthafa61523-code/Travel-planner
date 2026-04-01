@@ -1,0 +1,67 @@
+:root {
+  --nyora-teal: #1b6b7a;
+  --nyora-gold: #e2b04a;
+  --footer-dark: #0f172a;
+}
+
+.footer {
+  background: var(--footer-dark);
+  color: #e2e8f0;
+  padding: 60px 20px; /* Increased padding for a more 'luxury' feel */
+  margin-top: 80px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+/* Matching your Nyora Brand Header */
+.footer h3 {
+  margin-bottom: 12px;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: var(--nyora-teal);
+  text-transform: uppercase;
+}
+
+.footer p {
+  font-size: 15px;
+  font-weight: 500;
+  color: #94a3b8; /* Softer slate for subtext */
+}
+
+.footer-links {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: #f8fafc;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-links a:hover {
+  color: var(--nyora-gold); /* Gold hover to match your logo accents */
+}
+
+/* Visual divider for the copyright */
+.footer-copy {
+  margin-top: 40px;
+  padding-top: 20px;
+  font-size: 12px;
+  color: #475569;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  letter-spacing: 0.02em;
+}

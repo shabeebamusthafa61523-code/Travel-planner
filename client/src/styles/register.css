@@ -1,0 +1,130 @@
+/* --- Brand Variables --- */
+:root {
+  --nyora-teal: #1b6b7a;
+  --nyora-gold: #e2b04a;
+  --nyora-dark: #0f172a;
+  --glass-white: rgba(255, 255, 255, 0.95);
+}
+
+.register-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Matching the radial gradient from your Trip Details background */
+  background: radial-gradient(circle at top right, #f0fdfa, #ffffff),
+              linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  font-family: 'Inter', sans-serif;
+  padding: 20px;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--glass-white);
+  backdrop-filter: blur(16px);
+  padding: 50px 40px;
+  border-radius: 30px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.register-card h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--nyora-teal);
+  letter-spacing: -1px;
+}
+
+/* --- Form Inputs --- */
+.register-card input {
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding doesn't break width */
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  border: 1.5px solid #e2e8f0;
+  font-size: 1rem;
+  background: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.register-card input:focus {
+  outline: none;
+  border-color: var(--nyora-teal);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(27, 107, 122, 0.1);
+}
+
+/* --- Primary Action Button --- */
+.register-card button {
+  width: 100%;
+  padding: 16px;
+  background: var(--nyora-teal);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.register-card button:hover {
+  background: #14505c;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(27, 107, 122, 0.2);
+}
+
+/* --- Navigation Link --- */
+.switch-text {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #64748b;
+}
+
+.switch-text span {
+  color: var(--nyora-gold);
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.switch-text span:hover {
+  text-decoration: underline;
+  color: #d97706;
+}
+
+/* --- Error Messaging --- */
+.error-text {
+  background: #fee2e2;
+  color: #ef4444;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px solid #fecaca;
+  animation: shake 0.4s ease-in-out;
+}
+
+/* --- Subtle Animations --- */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+  .register-card {
+    padding: 30px 20px;
+    border-radius: 20px;
+  }
+}

@@ -1,0 +1,95 @@
+:root {
+  --nyora-teal: #1b6b7a;
+  --nyora-gold: #e2b04a;
+}
+
+.contact-page {
+  max-width: 500px;
+  margin: auto;
+  padding: 140px 30px 80px; /* Extra top padding for the floating navbar */
+  text-align: center;
+  animation: slideUp 0.7s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.contact-page h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.04em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+/* Brand gold accent under title */
+.contact-page h1::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: var(--nyora-gold);
+  margin: 12px auto 20px;
+  border-radius: 10px;
+}
+
+.contact-subtitle {
+  color: #64748b; /* Slate for better readability on light gradient */
+  margin-bottom: 40px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.contact-form {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  font-size: 15px;
+  background: #f8fafc;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--nyora-teal);
+  box-shadow: 0 0 0 4px rgba(27, 107, 122, 0.1);
+}
+
+.contact-form button {
+  background: var(--nyora-teal);
+  color: white;
+  padding: 16px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 20px rgba(27, 107, 122, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 10px;
+}
+
+.contact-form button:hover {
+  background: #145663;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(27, 107, 122, 0.3);
+}

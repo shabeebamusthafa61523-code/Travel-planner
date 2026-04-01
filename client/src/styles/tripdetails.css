@@ -1,0 +1,293 @@
+/* --- Design Tokens & Variables --- */
+:root {
+  --nyora-teal: #1b6b7a;
+  --nyora-gold: #e2b04a;
+  --nyora-dark: #0f172a;
+  --glass-white: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --shadow-luxe: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Global Background --- */
+.bg {
+  background: radial-gradient(circle at top right, #f0fdfa, #ffffff),
+              linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  padding-bottom: 60px;
+}
+
+.trip-details-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 120px 20px 40px; /* Space for Navbar */
+}
+
+/* --- The Main Luxe Card --- */
+.trip-card {
+  background: var(--glass-white);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 32px;
+  padding: 45px;
+  box-shadow: var(--shadow-luxe);
+}
+
+/* --- Header & Typography --- */
+.trip-card h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--nyora-teal);
+  letter-spacing: -1.5px;
+  margin-bottom: 5px;
+}
+
+.trip-card h2 {
+  font-size: 1.4rem;
+  color: var(--nyora-dark);
+  margin-top: 45px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+}
+
+.trip-card h2::before {
+  content: "";
+  width: 4px;
+  height: 24px;
+  background: var(--nyora-gold);
+  border-radius: 10px;
+}
+
+/* --- Badges & Widgets --- */
+.countdown {
+  background: linear-gradient(135deg, var(--nyora-gold), #d97706);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: inline-block;
+  box-shadow: 0 8px 15px rgba(226, 176, 74, 0.25);
+  margin: 15px 0;
+}
+
+.weather {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #475569;
+  margin-top: 12px;
+}
+
+.recommendation {
+  background: rgba(27, 107, 122, 0.05);
+  padding: 15px 20px;
+  border-radius: 16px;
+  border-left: 4px solid var(--nyora-teal);
+  color: #334155;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+/* --- Map & Visuals --- */
+.trip-map {
+  margin: 35px 0;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 6px solid white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* --- Interactive Lists (Activities/Itinerary) --- */
+.activities-list {
+  list-style: none;
+  padding: 0;
+}
+
+.activities-list li {
+  background: white;
+  margin-bottom: 12px;
+  padding: 18px 24px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #f1f5f9;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.activities-list li:hover {
+  transform: translateY(-2px);
+  border-color: var(--nyora-teal);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+}
+
+.activities-list input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 18px;
+  accent-color: var(--nyora-teal);
+  cursor: pointer;
+}
+
+/* --- Nearby Places Grid --- */
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.place-card {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid #f1f5f9;
+  transition: all 0.3s;
+}
+
+.place-card:hover {
+  border-color: var(--nyora-gold);
+}
+
+.place-card h3 {
+  font-size: 0.95rem;
+  color: var(--nyora-dark);
+  margin-bottom: 8px;
+}
+
+.place-category {
+  font-size: 0.7rem;
+  color: var(--nyora-teal);
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+/* --- Cost Input Styling --- */
+.cost-input {
+  width: 90px;
+  margin: 0 12px;
+  padding: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  text-align: right;
+  font-weight: 700;
+  color: var(--nyora-teal);
+}
+
+/* --- Primary & Danger Buttons --- */
+.button-group {
+  display: flex;
+  gap: 16px;
+  margin-top: 50px;
+}
+
+.button-edit {
+  background: var(--nyora-teal);
+  color: white;
+  flex: 2;
+  padding: 16px;
+  border-radius: 18px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button-edit:hover {
+  background: #14505c;
+  box-shadow: 0 15px 25px -5px rgba(27, 107, 122, 0.3);
+}
+
+.button-delete {
+  background: transparent;
+  color: #ef4444;
+  border: 2px solid #fee2e2;
+  flex: 1;
+  padding: 16px;
+  border-radius: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button-delete:hover {
+  background: #fee2e2;
+}
+
+/* --- Modal Styling --- */
+.modal-backdrop {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+.modal {
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 40px;
+}
+
+.modal input, .modal textarea {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 14px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+}
+
+/* --- Helpers --- */
+.muted { color: #94a3b8; font-size: 0.9rem; }
+
+/* --- Edit Modal --- */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 32px;
+  border-radius: 24px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modal h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.modal form input, 
+.modal form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* --- Utils --- */
+.muted { color: #94a3b8; font-style: italic; }
