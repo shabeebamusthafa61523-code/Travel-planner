@@ -13,7 +13,7 @@ const app = express();
 
 // Configure CORS for security
 const allowedOrigins = [
-  process.env.FRONTEND_URL, // Your Vercel URL (add to .env later)
+"https://travel-planner-pearl-alpha.vercel.app",
   "http://localhost:5173",  // Vite default
   "http://localhost:3000"   // React default
 ];

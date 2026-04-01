@@ -85,7 +85,7 @@ export default function TripDetails() {
   // 🔹 Fetch trip details
   const fetchTrip = async () => {
     try {
-      const res = await API.get(`/trips/${id}`);
+      const res = await API.get(`api/trips/${id}`);
       const data = res.data;
 
       setTrip(data);
@@ -339,7 +339,7 @@ useEffect(() => {
   const handleDelete = async () => {
     if (!window.confirm("Are you sure you want to delete this trip?")) return;
     try {
-      await API.delete(`/trips/${id}`);
+      await API.delete(`/api/trips/${id}`);
       toast.success("Trip deleted successfully!");
       navigate("/dashboard");
     } catch (err) {
@@ -380,7 +380,7 @@ useEffect(() => {
     }
     try {
       setSaving(true);
-      await API.put(`/trips/${id}`, {
+      await API.put(`/api/trips/${id}`, {
         title: formData.title.trim(),
         destination: formData.destination,
         startDate: formData.startDate || null,

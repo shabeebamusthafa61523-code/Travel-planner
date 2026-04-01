@@ -13,7 +13,7 @@ export default function CommonChat() {
 
   const fetchMessages = async () => {
     try {
-      const res = await API.get("/chat/global");
+      const res = await API.get("/api/chat/global");
       setMessages(res.data);
     } catch (err) {
       console.error("Chat load error", err);
@@ -25,7 +25,7 @@ export default function CommonChat() {
     if (!text.trim()) return;
 
     try {
-      const res = await API.post("/chat/global", { message: text });
+      const res = await API.post("/api/chat/global", { message: text });
       setMessages((prev) => [...prev, res.data]);
       setText("");
     } catch (err) {

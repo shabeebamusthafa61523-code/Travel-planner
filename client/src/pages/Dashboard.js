@@ -14,7 +14,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchTrips = async () => {
       try {
-        const res = await API.get("/trips");
+        const res = await API.get("/api/trips");
         setTrips(res.data);
         calculateStats(res.data);
       } catch (err) {

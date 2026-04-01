@@ -18,7 +18,7 @@ export default function CreateTrip() {
 
   const handleCreate = async () => {
     try {
-      await API.post("/trips", {
+      await API.post("/api/trips", {
         title,
         destination,
         startDate,
