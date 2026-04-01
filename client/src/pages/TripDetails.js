@@ -85,7 +85,7 @@ export default function TripDetails() {
   // 🔹 Fetch trip details
   const fetchTrip = async () => {
     try {
-      const res = await API.get(`api/trips/${id}`);
+      const res = await API.get(`/api/trips/${id}`);
       const data = res.data;
 
       setTrip(data);
