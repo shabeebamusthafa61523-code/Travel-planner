@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import API from "../services/Api";
 import TripCard from "../components/Tripcard";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/dashboard.css";
@@ -47,6 +47,9 @@ return (
           <p style={{ color: '#64748b', fontWeight: '500', marginTop: '8px' }}>
             Welcome back! Where to next?
           </p>
+          <NavLink to="/chat" className="explorer-link-minimal">
+      Connect with Explorers →
+    </NavLink>
         </div>
         <button className="create-btn" onClick={() => navigate("/create-trip")}>
           + Plan New Journey

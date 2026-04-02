@@ -153,3 +153,174 @@
   .login-card { padding: 40px 30px; border-radius: 0; border: none; box-shadow: none; background: transparent; }
   .quote { font-size: 1.5rem; }
 }
+/* --- Brand Variables --- */
+:root {
+  --nyora-teal: #1b6b7a;
+  --nyora-gold: #e2b04a;
+  --nyora-dark: #0f172a;
+  --glass-white: rgba(255, 255, 255, 0.95);
+}
+
+/* Base resets for a consistent feel */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-wrapper {
+  display: flex;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  background-color: #f8fafc;
+}
+
+/* --- LEFT SIDE: The Experience --- */
+.login-left {
+  flex: 1.2;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.login-left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(27, 107, 122, 0.6));
+}
+
+.quote {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-size: clamp(1.5rem, 3vw, 2.2rem); /* Dynamic font sizing */
+  font-weight: 300;
+  text-align: center;
+  max-width: 600px;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  animation: slideInUp 1s ease-out;
+}
+
+/* --- RIGHT SIDE: The Form --- */
+.login-right {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: #f8fafc;
+}
+
+.login-card {
+  background: white;
+  border-radius: 30px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  padding: clamp(30px, 5vw, 60px) clamp(20px, 4vw, 45px); /* Fluid padding */
+  width: 100%;
+  max-width: 440px;
+  text-align: center;
+  border: 1px solid #f1f5f9;
+}
+
+.login-logo {
+  width: clamp(100px, 15vw, 140px);
+  margin-bottom: 30px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
+}
+
+.login-card h2 {
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  font-weight: 800;
+  margin-bottom: 35px;
+  color: var(--nyora-teal);
+  letter-spacing: -1px;
+}
+
+/* --- Form Elements --- */
+.login-card input {
+  width: 100%;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  border: 1.5px solid #e2e8f0;
+  font-size: 1rem;
+  background: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 14px;
+  background: var(--nyora-teal);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.login-card button:hover {
+  background: #14505c;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(27, 107, 122, 0.2);
+}
+
+/* --- Responsive Layout Breaks --- */
+
+@media (max-width: 1024px) {
+  .login-left { flex: 1; }
+  .login-right { flex: 1; }
+}
+
+@media (max-width: 768px) {
+  .login-wrapper {
+    flex-direction: column;
+    overflow-y: auto; /* Allow scrolling on mobile */
+  }
+
+  .login-left {
+    min-height: 35vh; /* Keep the visual experience present */
+    flex: none;
+    padding: 30px;
+  }
+
+  .login-right {
+    flex: 1;
+    padding: 30px 20px;
+    align-items: flex-start; /* Better for long forms on small screens */
+  }
+
+  .login-card {
+    border-radius: 24px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    margin: 0 auto;
+    /* Optional: If you want a full-width look on mobile, remove border-radius and border */
+  }
+
+  .quote {
+    font-size: 1.35rem;
+    max-width: 90%;
+  }
+}
+
+/* Fix for very small devices */
+@media (max-width: 400px) {
+  .login-card {
+    padding: 30px 20px;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+  }
+}

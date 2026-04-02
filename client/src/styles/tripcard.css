@@ -86,3 +86,123 @@
   border-radius: 6px;
   border: 1px solid #e2e8f0;
 }
+/* Add to your existing TripCard CSS */
+
+.trip-card-header {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Specific hover effect for the countdown badge */
+.trip-card:hover .countdown {
+  background: var(--nyora-gold);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .trip-card {
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .trip-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .activities-list li {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+}
+
+/* Support for Dark Mode (if you implement it later) */
+@media (prefers-color-scheme: dark) {
+  .trip-card {
+    background: #1e293b;
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+  .trip-card h3 { color: #f8fafc; }
+  .dates { border-top-color: rgba(255, 255, 255, 0.05); }
+}
+/* --- Enhanced Trip Card Refinements --- */
+
+.trip-card {
+  /* ... existing styles ... */
+  min-height: 240px; /* Ensures all cards in a row have a consistent base */
+}
+
+/* Handle long text without breaking the card */
+.trip-card h3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limits title to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.destination {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Premium Image Placeholder (Optional) 
+   If you decide to add trip photos later, this is ready */
+.trip-card-image {
+  width: 100%;
+  height: 140px;
+  background: #f1f5f9;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+
+/* --- Media Queries for Grid Flow --- */
+
+@media (max-width: 768px) {
+  .trip-card {
+    padding: 18px;
+    border-radius: 20px; /* Slightly tighter corners for mobile */
+  }
+  
+  .trip-card h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 360px) {
+  /* For very small devices like iPhone SE */
+  .activities-list {
+    display: none; /* Hide activities on tiny screens to save vertical space */
+  }
+  
+  .trip-card {
+    min-height: auto;
+  }
+}
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Self-adjusting columns */
+  gap: 20px;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column; 
+    align-items: flex-start;
+    padding: 30px 20px;
+  }
+
+  .create-btn {
+    width: 100%; /* Full-width button is easier for thumb-tapping */
+    margin-top: 15px;
+  }
+  
+  .dashboard-header h2 {
+    font-size: 1.8rem; /* Scale down the large title */
+  }
+}

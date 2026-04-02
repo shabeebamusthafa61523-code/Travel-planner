@@ -1,3 +1,4 @@
+/* --- Brand Variables --- */
 :root {
   --nyora-teal: #1b6b7a;
   --nyora-gold: #e2b04a;
@@ -11,52 +12,43 @@
   transform: translateX(-50%);
   width: 90%;
   max-width: 1100px;
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--nav-bg);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 30px;
+  padding: 10px 24px;
   border-radius: 100px;
   border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  z-index: 2000; /* Ensure it stays on top */
+  z-index: 2000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Adjust the Nav Logo size so it doesn't break the pill height */
+/* Subtle shrink effect for scroll */
+.navbar.scrolled {
+  top: 10px;
+  padding: 8px 20px;
+  width: 95%; /* Expands slightly to feel more stable when scrolling */
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
 .logonav {
-  height: 60px; 
+  height: clamp(40px, 8vw, 55px); /* Responsive sizing */
   width: auto;
   object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
-/* Subtle shrink effect on scroll (if you add JS for it) */
-.navbar.scrolled {
-  padding: 8px 25px;
-  width: 80%;
-  background: rgba(255, 255, 255, 0.95);
-}
-
-.navbar-brand {
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.navbar-brand:hover {
+.navbar-brand:hover .logonav {
   transform: scale(1.05);
-}
-
-.navbar-title {
-  font-size: 1.3rem;
-  font-weight: 900;
-  color: var(--nyora-teal);
-  letter-spacing: -0.05em;
-  text-transform: uppercase;
 }
 
 .navbar-links {
   display: flex;
-  gap: 10px; /* Tighter gap for pill style */
+  gap: 8px; 
   align-items: center;
 }
 
@@ -65,27 +57,21 @@
   text-decoration: none;
   font-weight: 700;
   font-size: 0.85rem;
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: 50px;
   transition: all 0.3s ease;
-  position: relative;
+  white-space: nowrap;
 }
 
-/* Premium "Capsule" Active State */
 .navbar-link:hover {
   color: var(--nyora-teal);
-  background: rgba(27, 107, 122, 0.05);
+  background: rgba(27, 107, 122, 0.08);
 }
 
 .navbar-link.active {
   color: white;
   background: var(--nyora-teal);
   box-shadow: 0 4px 12px rgba(27, 107, 122, 0.25);
-}
-
-/* Remove the old underline effect */
-.navbar-link::after {
-  display: none;
 }
 
 .navbar-btn {
@@ -96,13 +82,109 @@
   border-radius: 50px;
   font-weight: 700;
   font-size: 0.8rem;
-  margin-left: 15px;
+  margin-left: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.navbar-btn:hover {
-  background: #ef4444;
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 850px) {
+  .navbar {
+    width: 95%;
+    padding: 8px 16px;
+  }
+  
+  /* Hide non-essential links or reduce text on mid-screens */
+  .navbar-link {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    width: 92%;
+    top: 10px;
+    padding: 6px 14px; /* Tighter padding for small screens */
+    border-radius: 40px; /* Adjust radius for smaller height */
+  }
+
+  /* Ensure the logo doesn't disappear or get too small */
+  .logonav {
+    height: 35px; 
+  }
+
+  .navbar-links {
+    gap: 4px;
+  }
+
+  /* Instead of dots, hide non-active links to show just 'Logout' and the 'Active' page */
+  .navbar-link:not(.active) {
+    display: none; 
+  }
+
+  .navbar-btn {
+    margin-left: 0;
+    padding: 4px ;
+    font-size: 0.7rem;
+    border-radius: 30px;
+  }
+}
+/* --- Desktop Refinements --- */
+.navbar-title {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--text-main);
+  margin: 0;
+  /* Hide title text on smaller tablets to keep the pill shape */
+  display: block;
+}
+
+/* --- Mobile Master Fixes --- */
+@media (max-width: 900px) {
+  .navbar-title {
+    display: none; /* Only show logo on tablet/mobile */
+  }
+}
+
+@media (max-width: 680px) {
+  .navbar {
+    width: 95%;
+    padding: 8px 12px;
+  }
+
+  /* Hide secondary links to prevent the navbar from becoming too wide */
+  .secondary-link {
+    display: none !important;
+  }
+
+  .navbar-link {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .navbar-btn {
+    padding: 8px 14px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar {
+    top: 10px;
+    border-radius: 50px;
+  }
+  
+  /* On tiny screens, just show the Active link icon/dot and Logout */
+  .navbar-link:not(.active) {
+    font-size: 0;
+    padding: 10px;
+  }
+
+  .navbar-link:not(.active)::before {
+    content: '•';
+    font-size: 1.2rem;
+  }
 }

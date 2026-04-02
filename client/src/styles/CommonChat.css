@@ -12,7 +12,7 @@
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.5);
-  
+  margin-top: 120px;
 }
 
 .chat-container h2 {
@@ -152,8 +152,21 @@
 /* Mobile */
 @media (max-width: 600px) {
   .chat-container {
-    height: 90vh;
-    margin: 10px auto;
-    border-radius: 20px;
+    height: calc(100dvh - 80px); /* Fill space between Nav and Bottom */
+    margin: 80px 0 0; /* Align to top on mobile */
+    width: 100%;
+    border-radius: 24px 24px 0 0; /* Rounded top only */
+    padding: 10px;
   }
+
+  .chat-messages {
+    padding: 20px 15px;
+  }
+
+  .chat-input {
+    padding: 10px 15px 30px;
+    margin-bottom: 50px; /* Extra bottom padding for mobile home indicators */
+  }
+
 }
+

@@ -1,13 +1,11 @@
+/* --- Brand Variables & Base --- */
 :root {
-  /* Brand Palette */
   --nyora-teal: #1b6b7a;
   --nyora-gold: #e2b04a;
   --bg-main: #f8fafc;
   --card-bg: #ffffff;
   --text-main: #0f172a;
   --text-muted: #64748b;
-  
-  /* Multi-layered shadow for 'Soft' elevation */
   --shadow-premium: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 
                     0 4px 6px -4px rgba(0, 0, 0, 0.02);
 }
@@ -15,9 +13,8 @@
 .dashboard-wrapper {
   background: radial-gradient(at 0% 0%, #ffffff 0%, #f1f5f9 100%);
   min-height: 100vh;
-  /* Add padding at the top so content isn't hidden behind the floating nav */
-  padding-top: 120px; 
-  /* padding-bottom: 10px; */
+  padding-top: 100px; /* Reduced for mobile focus */
+  padding-bottom: 40px;
 }
 
 .content-container {
@@ -25,22 +22,26 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Ensures spacing between header, stats, and grid */
+  gap: 20px;
+  padding: 0 20px; /* Added padding to prevent edge-touching on mobile */
 }
 
-/* Header: Typography Focus */
+/* --- Responsive Header --- */
 .dashboard-header {
-  padding: 60px 30px 30px;
+  padding: 40px 10px; /* Adjusted from 60px to be more compact */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; 
+  gap: 20px;
 }
 
 .dashboard-header h2 {
-  font-size: 2.6rem;
+  /* Fluid font-size: min 1.8rem, scales with width, max 2.6rem */
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
   font-weight: 800;
   color: var(--text-main);
-  letter-spacing: -0.04em; /* Premium tight spacing */
+  letter-spacing: -0.04em;
   margin: 0;
 }
 
@@ -51,10 +52,9 @@
   height: 5px;
   background: var(--nyora-gold);
   border-radius: 10px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
-/* Premium Button Glow */
 .create-btn {
   background: var(--nyora-teal);
   color: white;
@@ -65,26 +65,21 @@
   cursor: pointer;
   box-shadow: 0 10px 20px -5px rgba(27, 107, 122, 0.3);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  white-space: nowrap;
 }
 
-.create-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 30px -5px rgba(27, 107, 122, 0.5);
-  background: #145663;
-}
-
-/* Stat Cards: Elevation over Glass */
+/* --- Responsive Stats Grid --- */
 .stats-cards {
-  display: flex;
+  display: grid;
+  /* Auto-fit creates columns as long as they are at least 280px wide */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
-  padding: 0 30px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .stat-card {
   background: var(--card-bg);
   border: 1px solid rgba(226, 232, 240, 0.8);
-  flex: 1;
   padding: 32px;
   border-radius: 24px;
   box-shadow: var(--shadow-premium);
@@ -93,33 +88,9 @@
   opacity: 0;
 }
 
-.stat-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
-  border-color: var(--nyora-teal);
-}
-
-/* Staggered Entrance Animation */
-@keyframes reveal {
-  from { opacity: 0; transform: translateY(25px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.stat-card:nth-child(1) { animation-delay: 0.1s; }
-.stat-card:nth-child(2) { animation-delay: 0.2s; }
-.stat-card:nth-child(3) { animation-delay: 0.3s; }
-
-.stat-card h3 {
-  text-transform: uppercase;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: var(--text-muted);
-  margin-bottom: 12px;
-}
-
 .stat-number {
-  font-size: 48px;
+  /* Scales the big numbers so they don't break containers on mobile */
+  font-size: clamp(32px, 4vw, 48px);
   font-weight: 900;
   color: var(--text-main);
   background: linear-gradient(135deg, var(--text-main), var(--nyora-teal));
@@ -127,16 +98,90 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Progress Bars */
-.progress-bar {
-  height: 6px;
-  background: #f1f5f9;
-  border-radius: 20px;
-  margin-top: 20px;
-  overflow: hidden;
+/* --- Responsive Trip Grid --- */
+.trip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  padding-bottom: 60px;
 }
 
-.progress-fill {
-  height: 100%;
-  border-radius: 20px;
+/* --- Mobile Specific Breakpoints --- */
+
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    padding-top: 110px; /* Space for your floating navbar */
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 0;
+  }
+
+  .create-btn {
+    width: 100%; /* Full-width button for thumb-tapping ease */
+    text-align: center;
+  }
+  
+  .stats-cards {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-card {
+    padding: 24px; /* Tighter padding on small phones */
+  }
+  
+  .content-container {
+    padding: 0 15px;
+  }
+}
+
+/* Entrance Animation */
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+.header-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.explorer-link-minimal {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--nyora-teal);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.explorer-link-minimal:hover {
+  opacity: 1;
+  gap: 10px; /* Slight arrow movement on hover */
+  color: var(--nyora-gold);
+}
+
+/* --- Responsive Fix --- */
+@media (max-width: 768px) {
+  .header-title-group {
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  
+  .explorer-link-minimal {
+    font-size: 0.8rem;
+    padding: 5px 0;
+  }
 }

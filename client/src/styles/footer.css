@@ -8,7 +8,7 @@
   background: var(--footer-dark);
   color: #e2e8f0;
   padding: 60px 20px; /* Increased padding for a more 'luxury' feel */
-  margin-top: 80px;
+  /* margin-top: 80px; */
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -64,4 +64,81 @@
   color: #475569;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   letter-spacing: 0.02em;
+}
+/* --- Footer Base Refinements --- */
+.footer {
+  background: var(--footer-dark);
+  color: #e2e8f0;
+  /* Fluid padding: scales between 40px and 80px */
+  padding: clamp(40px, 8vw, 80px) 20px;
+  margin-top: 80px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.footer h3 {
+  /* Fluid font-size for the brand name */
+  font-size: clamp(18px, 4vw, 24px);
+  margin-bottom: 12px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: var(--nyora-teal);
+  text-transform: uppercase;
+}
+
+/* --- Responsive Link Logic --- */
+.footer-links {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allows links to drop to next line safely */
+  gap: clamp(15px, 4vw, 30px);
+}
+
+.footer-links a {
+  color: #f8fafc;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  white-space: nowrap; /* Prevents single words from breaking */
+}
+
+/* --- Mobile Specific Overrides --- */
+@media (max-width: 640px) {
+  .footer-links {
+    flex-direction: column; /* Stack links vertically on mobile */
+    gap: 20px;
+    margin: 40px 0;
+  }
+
+  .footer-links a {
+    font-size: 14px; /* Slightly larger for easier tapping */
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03); /* Subtle separation */
+  }
+
+  .footer-links a:last-child {
+    border-bottom: none;
+  }
+
+  .footer p {
+    font-size: 14px;
+    padding: 0 10px;
+    line-height: 1.6;
+  }
+
+  .footer-copy {
+    margin-top: 30px;
+    font-size: 11px;
+    line-height: 1.5;
+  }
 }
